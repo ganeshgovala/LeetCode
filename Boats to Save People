@@ -1,0 +1,14 @@
+int numRescueBoats(int* people, int peopleSize, int limit) {
+    int count = 0;
+    int answer;
+    for(int i=0; i<peopleSize-1; i++)
+    {
+        if(people[i] + people[i+1] == limit)
+        {
+            count++;
+            i++;
+        }
+    }
+    answer = (peopleSize-(count));
+    return answer; 
+}
