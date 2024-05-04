@@ -1,0 +1,22 @@
+int findMaxK(int* nums, int numsSize) {
+    int target = 0, answer = -1;
+
+    for(int i=0; i<numsSize; i++)
+    {
+        if(nums[i] > target)
+        {
+            target = nums[i];
+            for(int j=0; j<numsSize; j++)
+            {
+                if(nums[j] == -target)
+                {
+                    answer = target;
+                }
+            }
+            if(answer == -1) {
+                target = 0;
+            }
+        }
+    }
+    return answer;
+}
