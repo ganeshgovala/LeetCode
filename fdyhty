@@ -1,0 +1,29 @@
+long long maximumHappinessSum(int* happiness, int happinessSize, int k) {
+    int temp;
+    long long answer = 0;
+    for(int i=0; i<happinessSize-1; i++)
+    {
+        for(int j=i+1; j<happinessSize; j++)
+        {
+            if(happiness[a] < happiness[j])
+            {
+                temp = happiness[i];
+                happiness[i] = happiness[j];
+                happiness[j] = temp;
+            }
+        }
+    }
+
+    for(int i=0; i<happinessSize && k!=0; i++)
+    {
+        answer = answer + happiness[i];
+        for(int j=1; j<happinessSize && happiness[j] != 0; j++)
+        {
+            happiness[j] = happiness[j] - 1;
+        }
+        printf("answer : %d\n", answer);
+        k--;
+    }
+
+    return answer;
+}
