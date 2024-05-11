@@ -1,0 +1,36 @@
+int romanToInt(char* s) {
+    int i = 0;
+    int value = 0;
+    int prev_value = 0;
+    int count = 0;
+    while(s[i] != '\0')
+    {
+        switch(s[i])
+        {
+            case 'I': value = 1;
+                      break;
+            case 'V': value = 5;
+                      break;
+            case 'X': value = 10;
+                      break;
+            case 'L': value = 50;
+                      break;
+            case 'C': value = 100;
+                      break;
+            case 'D': value = 500;
+                      break;
+            case 'M': value = 1000;
+                      break;
+        }
+
+        if(value > prev_value)
+        {
+            count += value - 2 * prev_value;
+        } else {
+            count += value;
+        }
+        prev_value = value;
+        i++;
+    }
+    return count;
+}
